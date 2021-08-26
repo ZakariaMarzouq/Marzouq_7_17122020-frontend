@@ -1,0 +1,194 @@
+.App {
+  background-color: #282c34;
+  color: white;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-auto-rows: minmax(100px, auto);
+  min-height: 100vh;
+}
+
+.error {
+  color: tomato;
+  font-size: 18px;
+  font-weight: 900;
+}
+
+.App-logo {
+  grid-column: 1;
+  grid-row: 1;
+  width: 200px;
+  margin: 35px auto;
+  padding: 15px;
+}
+
+.App-connexion {
+  grid-column: 5;
+  grid-row: 1;
+  text-align: center;
+  margin: 35px auto;
+  font-weight: 700;
+  display: flex;
+  flex-direction: column;
+}
+
+.pseudo {
+  text-decoration: none;
+  color: white;
+}
+
+.button-disconnect {
+  background-color: tomato;
+  color: #282c34;
+  border: solid 2px red;
+  border-radius: 50px;
+  padding: 5px 10px;
+  font-weight: 900;
+  cursor: pointer;
+  transition: 0.4s ease-out;
+}
+
+.button-disconnect:hover {
+  background-color: red;
+}
+
+.App-connexion-link {
+  text-decoration: none;
+  color: white;
+  transition: 0.4s ease-out;
+}
+
+.App-connexion-link:hover {
+  color: tomato;
+}
+
+.App-connexion-button {
+  text-decoration: none;
+  color: white;
+}
+
+.App-groupotter {
+  background-color: green;
+  border: solid 2px lightgreen;
+  color: white;
+  border-radius: 50px;
+  font-size: 15px;
+  font-weight: 900;
+  padding: 16px;
+  margin-top: 35px;
+  transition: 0.4s;
+}
+
+.App-groupotter:hover {
+  background-color: #15ac59;
+  padding: 16px 20px;
+}
+
+.App-body {
+  grid-column: 2 / 5;
+  border-left: solid 1px rgb(90, 90, 90);
+  border-right: solid 1px rgb(90, 90, 90);
+}
+
+.App-comment {
+  padding: 35px;
+  border-bottom: solid 1px rgb(90, 90, 90);
+  word-wrap: break-word;
+}
+
+.image {
+  width: 100%;
+  border-radius: 25px;
+  border: solid 1px rgb(90, 90, 90);
+}
+
+.App-signup,
+.App-loading,
+.App-groupotter,
+.App-post {
+  text-align: center;
+}
+
+.App-loading-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+}
+
+.input-form {
+  padding: 5px;
+  margin: 10px;
+}
+
+.input-form-comment {
+  padding: 5px;
+  margin: 10px;
+  height: 200px;
+  width: 250px;
+}
+
+.connexion-button {
+  border: solid 2px lightgreen;
+  background-color: green;
+  color: white;
+  font-weight: 900;
+  font-size: 15px;
+  cursor: pointer;
+  border-radius: 50px;
+  padding: 16px;
+  margin: 30px 0;
+  transition: 0.4s;
+}
+
+.connexion-button:hover {
+  background-color: #15ac59;
+  padding: 16px 20px;
+}
+
+@media (max-width: 800px) {
+  .App {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .App-logo {
+    grid-column: 4;
+    grid-row: 1;
+  }
+
+  .App-body {
+    grid-column: 1 / 4;
+    grid-row: 1;
+    border-right: solid 1px rgb(90, 90, 90);
+    border-left: 0;
+  }
+
+  .App-connexion {
+    grid-column: 4;
+    grid-row: 1;
+    margin-top: 100px;
+  }
+}
+
+@media (max-width: 550px) {
+  .App {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .App-logo {
+    grid-column: 1 / 4;
+    grid-row: 1;
+  }
+
+  .App-body {
+    grid-column: 1 / 4;
+    grid-row: 3;
+    border-top: solid 1px rgb(90, 90, 90);
+    border-right: 0;
+  }
+
+  .App-connexion {
+    grid-column: 1 / 4;
+    grid-row: 2;
+    margin-top: 0;
+  }
+}
