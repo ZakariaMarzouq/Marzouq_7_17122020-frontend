@@ -1,36 +1,35 @@
-import React, { useState } from "react";
+import React from "react";
 import axios from "axios";
-import { useHistory } from "react-router-dom";
+import Swal from "sweetalert2";
+import { useState } from "react";
+import {useHistory} from 'react-router-dom';
 
-const SignInForm = () => {
+
+export default function SignIn() {
   let history = useHistory();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
+  const [email, setEmail] = useState();
+  const [password, setPassword] = useState();
 
   const handleLogin = (e) => {
-    e.preventDefault(); // evite le rechargement
+    e.preventDefault();
     const data = { email: email, password: password };
     axios
-      .post("http://localhost:5000/api/auth/login/", data, {
-        method: "POST",
-        body: data,
-        headers: { "Content-Type": "application/json" },
-      })
+      .post("http://localhost:5000/api/auth/login", data)
       .then((res) => {
         console.log(res.data);
-        localStorage.setItem("accessToken", res.data.token);
-        localStorage.setItem("userId", res.data.userId);
-        localStorage.setItem("userName", res.data.userName);
+        window.localStorage.setItem("accessToken", res.data.token);
+        window.localStorage.setItem("userId", res.data.userId);
+        window.localStorage.setItem("userName", res.data.userName);
+        window.localStorage.setItem("isAdmin", res.data.isAdmin);
         history.push("/");
         window.location.reload();
       })
-      .catch((error) => {
-        if (error.response.data.error.errors) {
-          setError("L'email ou le mot de passe est incorrect.");
-        } else {
-          setError(error.response.data.error);
-        }
+      .catch((err) => {
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "Email ou password incorrect !!",
+        });
       });
   };
 
@@ -68,11 +67,8 @@ const SignInForm = () => {
             />
           </div>
         </div>
-        <div className="error">{error}</div>
         <button className="connexion-button">Se connecter</button>
       </form>
     </div>
   );
 }
-
-export default SignInForm;
