@@ -19,7 +19,7 @@ const UserGreeting = (props) => {
         </button>
       </div>
       <NavLink className="App-connexion button" to="/post">
-        <p className="App-groupotter">Créé ton post</p>
+        <p className="App-groupotter">Crée ton post</p>
       </NavLink>
     </div>
   );
