@@ -1,12 +1,13 @@
 import React, { Component } from "react";
+import Login from "./components/log/SignInForm";
+import Register from "./components/log/SignUpForm";
+import Navigation from "./components/pages/Navbar";
+import Home from "./components/pages/Home";
+import Post from "./components/pages/Post";
+import User from './components/pages/User';
 
-import Login from "./components/SignInForm";
-import Register from "./components/SignUpForm";
-import Navigation from "./components/Navbar";
-import Home from "./components/Home";
 
-import Post from "./components/Post";
-import './style/App.css'
+import './components/style/App.css'
 import logo from "./icon-left-font-monochrome-white.png";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { createBrowserHistory } from "history";
@@ -23,7 +24,9 @@ export default class App extends Component {
           <Route path="/" exact component={Home} />
           <Route path="/login" exact component={Login} />
           <Route path="/register" exact component={Register} />
-          <Route path="/post" exact component={Post} />
+          <Route path="/post" exact component={Post}  />
+          <Route path="/user" exact component={User}  />
+
         </Router>
       </div>
     );

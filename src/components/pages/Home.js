@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-
+import CardComments from "./CardComments";
+import "../icones/ico-message.svg";
 
 // fonction de récupération de tous les articles
 
 const Home = () => {
+  const [ShowComments, setShowComments] = useState(false);
 
   const [listPost, setListPost] = useState([]);
   const token = JSON.parse(localStorage.getItem("token"));
@@ -17,7 +19,7 @@ const Home = () => {
         },
       })
       .then((res) => {
-          console.log(res.data);
+        console.log(res.data);
         setListPost(res.data);
       });
   }, []); // Evite la répétition
@@ -37,10 +39,28 @@ const Home = () => {
             <div className="date">
               <p>
                 <em>
-                  Post créé le {post.createdAt} par {localStorage.getItem("userName")}
+                  Post créé le {post.createdAt}
                 </em>
               </p>
             </div>
+            <div className="date">
+              <p>
+                <em>
+                  Post créé par {post.userId} 
+                  
+                </em>
+              </p>
+            </div>
+            <div className="comment-container">
+              <div className="comment-icon">
+                <img
+                  onClick={() => setShowComments(!ShowComments)}
+                  src="../icones/message1.svg"
+                  
+                />
+              </div>
+            </div>
+            {ShowComments && <CardComments post={post} />}
           </div>
         );
       })}

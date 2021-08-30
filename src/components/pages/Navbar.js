@@ -19,8 +19,11 @@ const UserGreeting = (props) => {
         </button>
       </div>
       <NavLink className="App-connexion button" to="/post">
-        <p className="App-groupotter">Crée ton post</p>
+        <p className="App-groupotter">Ajouter un post</p>
       </NavLink>
+      <NavLink className="App-connexion-button" to="/user">
+          <p>Supprimer le compte</p>
+        </NavLink>
     </div>
   );
 };
@@ -66,7 +69,7 @@ const GuestGreeting = (props) => {
       </div>
       <NavLink className="App-connexion-button" to="/post">
         <div>
-            <p className="App-groupotter">NetWorkers</p>
+            <p className="App-groupotter">Ajoute un post !</p>
         </div>
       </NavLink>
     </div>
