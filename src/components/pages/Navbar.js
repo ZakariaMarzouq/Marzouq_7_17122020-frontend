@@ -22,7 +22,7 @@ const UserGreeting = (props) => {
         <p className="App-groupotter">Ajouter un post</p>
       </NavLink>
       <NavLink className="App-connexion-button" to="/user">
-          <p>Supprimer le compte</p>
+          <button>Supprimer le compte</button>
         </NavLink>
     </div>
   );

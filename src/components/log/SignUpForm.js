@@ -44,7 +44,7 @@ export default function SignUp(props) {
         Swal.fire({
           icon: "error",
           title: "Oops...",
-          text: "Username ou email non valide",
+          text: "Votre nom, prénom ou email non valide",
         });
       }
     }

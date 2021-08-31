@@ -56,6 +56,7 @@ const Home = () => {
                 <img
                   onClick={() => setShowComments(!ShowComments)}
                   src="../icones/message1.svg"
+                  alt="Commentaires"
                   
                 />
               </div>

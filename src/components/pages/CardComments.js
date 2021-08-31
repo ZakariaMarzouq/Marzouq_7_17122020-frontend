@@ -5,8 +5,8 @@ import { useHistory } from "react-router-dom";
 const CardComments = (props) => {
   let history = useHistory();
   const [newComment, setNewComment] = useState([]);
-  const postId = props.postId;
   const [error, setError] = useState("");
+  
 
   const handleSubmit = (e) => {
     e.preventDefault(); // evite le rechargement
@@ -14,14 +14,16 @@ const CardComments = (props) => {
     const token = JSON.parse(localStorage.getItem("token"));
     const postId = JSON.parse(localStorage.getItem("postId"));
     const data = new FormData();
+  
+    console.log(postId);
 
     data.append("newComment", newComment);
     data.append("userId", localStorage.getItem("userId"));
     data.append("postId", localStorage.getItem("postId"));
 
     axios
-      .post(`http://localhost:5000/api/comments` + props.postId, data, {
-        method: "POST",
+      .post(`http://localhost:5000/api/comments/${postId}`, data, {
+        method: "patch",
         body: data,
         headers: {
           "Content-Type": "application/json",

@@ -4,13 +4,13 @@ import Logout from "../log/Logout"
 import Delete from "../log/Delete"
 
 
-class Users extends Component {
+class User extends Component {
 
  
   render() {
 
-  const tokenId = JSON.parse(localStorage.getItem(('accessToken')))
-  if(tokenId === null) {
+  const token = JSON.parse(localStorage.getItem("token"));
+  if(token === null) {
     window.location = "/user"
   }
     return (
@@ -25,4 +25,4 @@ class Users extends Component {
 }
 
 
-export default Users;
+export default User;

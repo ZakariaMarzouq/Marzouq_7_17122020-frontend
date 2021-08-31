@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-const API = 'http://localhost:5000/api/user/delete'
+const API = 'http://localhost:5000/api/auth/user/delete'
 
 const Delete = () => {
   
@@ -22,7 +22,8 @@ const Delete = () => {
   };
 
   return (
-    <div>
+
+    <div className="App-body">
       <button onClick={deleteProfile} className="delete">Supprimer son profil</button>
     </div>
   );
